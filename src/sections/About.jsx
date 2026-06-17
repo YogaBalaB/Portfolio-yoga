@@ -8,7 +8,7 @@ const C = {
 }
 
 const facts = [
-  { label: 'Based in', value: 'Tenkasi, Tamil Nadu', icon: FaMapMarkerAlt },
+  { label: 'Based in', value: 'Chennai, Tamil Nadu', icon: FaMapMarkerAlt },
   { label: 'Specialization', value: 'Frontend Development · Full Stack Web Development', icon: FaCode },
 ]
 

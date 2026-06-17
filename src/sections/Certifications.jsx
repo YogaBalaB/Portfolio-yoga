@@ -17,7 +17,7 @@ const certifications = [
     icon: FaTrophy
   },
   {
-    title: '1st Prize — Organizing School Cultural Events',
+    title: '1st Prize — School Cultural Event Organization',
     issuer: 'Awarded by the Tahsildar',
     date: 'Achievement',
     badge: 'Award',
@@ -27,7 +27,7 @@ const certifications = [
   {
     title: 'Head of Junior Red Cross (JRC)',
     issuer: 'Leading social initiatives & community service',
-    date: 'Leadership',
+    date: 'Community Leadership',
     badge: 'Leadership',
     type: 'special',
     icon: FaUsers
@@ -35,16 +35,24 @@ const certifications = [
   {
     title: 'AI Masterclass, IoT in AI Bootcamp & Career Counselling',
     issuer: 'Professional Workshops',
-    date: 'Certification',
+    date: 'Professional Development',
     badge: 'Certification',
     type: 'cert',
     icon: FaFileAlt
   },
   {
-    title: 'Technical & Cultural Events Participant',
-    issuer: 'Multiple awards and recognition',
-    date: 'Extracurricular',
-    badge: 'Participation',
+    title: 'Technical & Cultural Events Winner',
+    issuer: 'Won multiple awards and recognitions in technical presentations, cultural competitions, and extracurricular events',
+    date: 'Competition Awards',
+    badge: 'Achievement',
+    type: 'cert',
+    icon: FaFileAlt
+  },
+  {
+    title: 'English Speaking Training Program Certification',
+    issuer: 'Professional Development',
+    date: '2024',
+    badge: 'Certification',
     type: 'cert',
     icon: FaFileAlt
   },

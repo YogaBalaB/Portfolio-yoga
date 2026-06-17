@@ -52,8 +52,6 @@ const projects = [
       'Resource distribution tracking',
     ],
     stack: ['JavaScript', 'PHP', 'MySQL', 'HTML/CSS'],
-    github: '[ADD LINK]',
-    liveDemo: '[ADD LINK]',
   },
 ]
 
@@ -217,44 +215,50 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Links */}
-              <div style={{ display: 'flex', gap: '1rem', paddingTop: '0.5rem' }}>
-                <a
-                  href={project.github}
-                  target={project.github !== '[ADD LINK]' ? '_blank' : '_self'}
-                  rel="noreferrer"
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                    padding: '0.6rem 1.2rem',
-                    background: hovered === project.num ? C.gold2 : C.gold,
-                    color: C.bg,
-                    fontFamily: C.fs, fontSize: '0.7rem', fontWeight: 500,
-                    letterSpacing: '0.08em', textTransform: 'uppercase',
-                    borderRadius: '4px', textDecoration: 'none',
-                    transition: 'all 0.2s', border: 'none', cursor: 'pointer',
-                  }}
-                >
-                  <FaGithub size={14} /> GitHub
-                </a>
-                <a
-                  href={project.liveDemo}
-                  target={project.liveDemo !== '[ADD LINK]' ? '_blank' : '_self'}
-                  rel="noreferrer"
-                  style={{
-                    display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
-                    padding: '0.6rem 1.2rem',
-                    background: 'transparent',
-                    color: hovered === project.num ? C.gold2 : C.muted,
-                    fontFamily: C.fs, fontSize: '0.7rem', fontWeight: 500,
-                    letterSpacing: '0.08em', textTransform: 'uppercase',
-                    borderRadius: '4px', border: `1px solid ${hovered === project.num ? C.gold2 : C.muted}40`,
-                    textDecoration: 'none',
-                    transition: 'all 0.2s', cursor: 'pointer',
-                  }}
-                >
-                  <FaExternalLinkAlt size={14} /> Live Demo
-                </a>
-              </div>
+              {/* Links — only renders if at least one link exists */}
+              {(project.github || project.liveDemo) && (
+                <div style={{ display: 'flex', gap: '1rem', paddingTop: '0.5rem' }}>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                        padding: '0.6rem 1.2rem',
+                        background: hovered === project.num ? C.gold2 : C.gold,
+                        color: C.bg,
+                        fontFamily: C.fs, fontSize: '0.7rem', fontWeight: 500,
+                        letterSpacing: '0.08em', textTransform: 'uppercase',
+                        borderRadius: '4px', textDecoration: 'none',
+                        transition: 'all 0.2s', border: 'none', cursor: 'pointer',
+                      }}
+                    >
+                      <FaGithub size={14} /> GitHub
+                    </a>
+                  )}
+                  {project.liveDemo && (
+                    <a
+                      href={project.liveDemo}
+                      target="_blank"
+                      rel="noreferrer"
+                      style={{
+                        display: 'inline-flex', alignItems: 'center', gap: '0.5rem',
+                        padding: '0.6rem 1.2rem',
+                        background: 'transparent',
+                        color: hovered === project.num ? C.gold2 : C.muted,
+                        fontFamily: C.fs, fontSize: '0.7rem', fontWeight: 500,
+                        letterSpacing: '0.08em', textTransform: 'uppercase',
+                        borderRadius: '4px', border: `1px solid ${hovered === project.num ? C.gold2 : C.muted}40`,
+                        textDecoration: 'none',
+                        transition: 'all 0.2s', cursor: 'pointer',
+                      }}
+                    >
+                      <FaExternalLinkAlt size={14} /> Live Demo
+                    </a>
+                  )}
+                </div>
+              )}
             </motion.div>
           ))}
         </motion.div>

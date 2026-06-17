@@ -188,13 +188,14 @@ export default function Hero({ photo=myPhoto }) {
               <p style={{
                 fontSize: '0.92rem',
                 color: '#9a9a98',
-                lineHeight: 1.9,
-                maxWidth: 520,
+                lineHeight: 1.7,
+                maxWidth: '600px',
+                margin: '0',
               }}>
-                Engineering graduate building responsive, user-first web applications
-                with React.js, Node.js, and PostgreSQL. Hackathon winner with 2
-                internships and a passion for clean, performant interfaces.
-              </p>
+                Engineering graduate building responsive and scalable web applications with
+                React.js, Node.js, and PostgreSQL. Backed by 2 internships and hands-on project
+                experience, with a focus on clean code, performance, and user-centric design.
+               </p>
 
               {/* CTAs */}
               <div className="hero-cta" style={{
@@ -251,7 +252,6 @@ export default function Hero({ photo=myPhoto }) {
                 {[
                   { n: '3+',  l: 'Projects shipped' },
                   { n: '2',   l: 'Internships' },
-                  { n: '1st', l: 'Hackathon winner' },
                 ].map((s, i) => (
                   <div key={i}>
                     <div className="stat-num">{s.n}</div>
