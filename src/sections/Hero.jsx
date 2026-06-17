@@ -2,27 +2,20 @@ import { useState } from 'react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import myPhoto from '../assets/yoga-photo.png'
 
-
-// ── Design tokens ────────────────────────────────────────────────
 const LINKEDIN_URL = "https://www.linkedin.com/in/yoga-bala-b-1873192a5/";
 const C = {
-  bg:    '#0b0c0e',
-  bg2:   '#111316',
-  line:  '#ffffff12',
-  text:  '#f0f0ee',
+  bg: '#0b0c0e',
+  bg2: '#111316',
+  line: '#ffffff12',
+  text: '#f0f0ee',
   muted: '#8a8a8a',
-  gold:  '#c9a96e',
+  gold: '#c9a96e',
   gold2: '#e8c98a',
   fd: "'Playfair Display', Georgia, serif",
   fs: "'Outfit', sans-serif",
 }
 
-// ── Replace this with your actual photo import ───────────────────
-// import myPhoto from './assets/yoga-photo.jpg'
-// Then pass it: <Hero photo={myPhoto} />
-// Or just drop the image URL directly in the src below.
-
-export default function Hero({ photo=myPhoto }) {
+export default function Hero({ photo = myPhoto }) {
   const [hover, setHover] = useState(null)
 
   return (
@@ -35,6 +28,7 @@ export default function Hero({ photo=myPhoto }) {
           from{opacity:0;transform:translateY(24px)}
           to{opacity:1;transform:translateY(0)}
         }
+
         .hero-cta a {
           display: inline-flex;
           align-items: center;
@@ -82,7 +76,6 @@ export default function Hero({ photo=myPhoto }) {
           color: ${C.muted};
           margin-top: 4px;
         }
-        /* Photo glow */
         .photo-wrap::after {
           content: '';
           position: absolute;
@@ -92,12 +85,44 @@ export default function Hero({ photo=myPhoto }) {
           background: radial-gradient(ellipse, #c9a96e30 0%, transparent 70%);
           pointer-events: none;
         }
+
+        /* ── Mobile layout ── */
         @media (max-width: 768px) {
-          .hero-inner { flex-direction: column !important; }
-          .hero-text  { order: 2; text-align: center; }
-          .hero-photo { order: 1; justify-content: center !important; }
+          .hero-inner {
+            flex-direction: column !important;
+            align-items: center !important;
+          }
+          .hero-text {
+            order: 2;
+            text-align: center;
+            flex: unset !important;
+            width: 100%;
+          }
+          .hero-photo {
+            order: 1;
+            width: 100% !important;
+            justify-content: center !important;
+            flex: unset !important;
+          }
+          .hero-photo .photo-wrap {
+            width: clamp(160px, 55vw, 260px) !important;
+          }
           .hero-cta   { justify-content: center !important; }
           .hero-stats { justify-content: center !important; }
+          .hero-badge { align-self: center; }
+        }
+
+        @media (max-width: 480px) {
+          .hero-photo .photo-wrap {
+            width: clamp(140px, 60vw, 220px) !important;
+          }
+          .hero-text { padding: 0 0.5rem; }
+        }
+
+        @media (max-width: 360px) {
+          .hero-photo .photo-wrap {
+            width: clamp(120px, 65vw, 180px) !important;
+          }
         }
       `}</style>
 
@@ -114,6 +139,7 @@ export default function Hero({ photo=myPhoto }) {
           margin: '0 auto',
           padding: 'clamp(3rem,8vw,5rem) clamp(1.25rem,4vw,2.5rem)',
           width: '100%',
+          boxSizing: 'border-box',
         }}>
           <div className="hero-inner" style={{
             display: 'flex',
@@ -121,7 +147,7 @@ export default function Hero({ photo=myPhoto }) {
             gap: 'clamp(2rem,5vw,5rem)',
           }}>
 
-            {/* ── Left: Text ───────────────────────────────────── */}
+            {/* ── Left: Text ── */}
             <div className="hero-text" style={{
               flex: '1 1 480px',
               display: 'flex',
@@ -131,7 +157,7 @@ export default function Hero({ photo=myPhoto }) {
             }}>
 
               {/* Badge */}
-              <div style={{
+              <div className="hero-badge" style={{
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.5rem',
@@ -149,7 +175,7 @@ export default function Hero({ photo=myPhoto }) {
                   background: C.gold,
                   animation: 'blink 2s ease-in-out infinite',
                   flexShrink: 0,
-                }}/>
+                }} />
                 Open to opportunities · Chennai
               </div>
 
@@ -191,12 +217,12 @@ export default function Hero({ photo=myPhoto }) {
                 color: '#9a9a98',
                 lineHeight: 1.7,
                 maxWidth: '600px',
-                margin: '0',
+                margin: '0 auto',
               }}>
                 Engineering graduate building responsive and scalable web applications with
                 React.js, Node.js, and PostgreSQL. Backed by 2 internships and hands-on project
                 experience, with a focus on clean code, performance, and user-centric design.
-               </p>
+              </p>
 
               {/* CTAs */}
               <div className="hero-cta" style={{
@@ -205,25 +231,15 @@ export default function Hero({ photo=myPhoto }) {
                 gap: '0.75rem',
                 alignItems: 'center',
               }}>
-                {/* Primary: Resume download */}
-                <a
-                  href="/resume.pdf"
-                  download
-                  className="primary"
-                >
+                <a href="/resume.pdf" download className="primary">
                   Download Resume
                 </a>
-
-                {/* Secondary: Contact */}
                 <a href="#contact" className="outline">
                   Let's Talk
                 </a>
-
-                {/* Icon-only social links */}
                 <a
                   href="https://github.com/YogaBalaB"
-                  target="_blank"
-                  rel="noreferrer"
+                  target="_blank" rel="noreferrer"
                   className="outline"
                   style={{ padding: '0.65rem 0.85rem' }}
                   aria-label="GitHub"
@@ -232,8 +248,7 @@ export default function Hero({ photo=myPhoto }) {
                 </a>
                 <a
                   href={LINKEDIN_URL}
-                  target="_blank"
-                  rel="noreferrer"
+                  target="_blank" rel="noreferrer"
                   className="outline"
                   style={{ padding: '0.65rem 0.85rem' }}
                   aria-label="LinkedIn"
@@ -251,8 +266,8 @@ export default function Hero({ photo=myPhoto }) {
                 borderTop: `1px solid ${C.line}`,
               }}>
                 {[
-                  { n: '3+',  l: 'Projects shipped' },
-                  { n: '2',   l: 'Internships' },
+                  { n: '3+', l: 'Projects shipped' },
+                  { n: '2', l: 'Internships' },
                 ].map((s, i) => (
                   <div key={i}>
                     <div className="stat-num">{s.n}</div>
@@ -262,7 +277,7 @@ export default function Hero({ photo=myPhoto }) {
               </div>
             </div>
 
-            {/* ── Right: Photo ─────────────────────────────────── */}
+            {/* ── Right: Photo ── */}
             <div className="hero-photo" style={{
               flex: '0 0 auto',
               display: 'flex',
@@ -288,55 +303,42 @@ export default function Hero({ photo=myPhoto }) {
                     }}
                   />
                 ) : (
-                  /* Placeholder shown until you pass a photo prop */
                   <div style={{
-                    width: '100%',
-                    height: '100%',
+                    width: '100%', height: '100%',
                     borderRadius: '12px',
                     background: '#1a1b1f',
                     border: `1px dashed #c9a96e40`,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.75rem',
-                    color: C.muted,
+                    display: 'flex', flexDirection: 'column',
+                    alignItems: 'center', justifyContent: 'center',
+                    gap: '0.75rem', color: C.muted,
                   }}>
                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#c9a96e60" strokeWidth="1.2">
-                      <circle cx="12" cy="8" r="4"/>
-                      <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+                      <circle cx="12" cy="8" r="4" />
+                      <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
                     </svg>
                     <span style={{ fontSize: '0.75rem', letterSpacing: '0.08em', textTransform: 'uppercase' }}>
                       Add your photo
                     </span>
-                    <code style={{ fontSize: '0.65rem', color: '#c9a96e70', textAlign: 'center', padding: '0 1rem' }}>
-                      import photo from './assets/you.jpg'<br/>
-                      &lt;Hero photo={'{photo}'} /&gt;
-                    </code>
                   </div>
                 )}
 
-                {/* Decorative corner accent */}
+                {/* Decorative corner accents */}
                 <div style={{
-                  position: 'absolute',
-                  top: -12, right: -12,
+                  position: 'absolute', top: -12, right: -12,
                   width: 80, height: 80,
                   borderTop: `2px solid ${C.gold}`,
                   borderRight: `2px solid ${C.gold}`,
                   borderRadius: '0 12px 0 0',
-                  opacity: 0.4,
-                  pointerEvents: 'none',
-                }}/>
+                  opacity: 0.4, pointerEvents: 'none',
+                }} />
                 <div style={{
-                  position: 'absolute',
-                  bottom: -12, left: -12,
+                  position: 'absolute', bottom: -12, left: -12,
                   width: 80, height: 80,
                   borderBottom: `2px solid ${C.gold}`,
                   borderLeft: `2px solid ${C.gold}`,
                   borderRadius: '0 0 0 12px',
-                  opacity: 0.4,
-                  pointerEvents: 'none',
-                }}/>
+                  opacity: 0.4, pointerEvents: 'none',
+                }} />
               </div>
             </div>
 
