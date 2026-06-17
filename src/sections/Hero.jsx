@@ -4,6 +4,7 @@ import myPhoto from '../assets/yoga-photo.png'
 
 
 // ── Design tokens ────────────────────────────────────────────────
+const LINKEDIN_URL = "https://www.linkedin.com/in/yoga-bala-b-1873192a5/";
 const C = {
   bg:    '#0b0c0e',
   bg2:   '#111316',
@@ -230,7 +231,7 @@ export default function Hero({ photo=myPhoto }) {
                   <FaGithub size={17} />
                 </a>
                 <a
-                  href="https://www.linkedin.com/in/yoga-bala-b-1873192a5/"
+                  href={LINKEDIN_URL}
                   target="_blank"
                   rel="noreferrer"
                   className="outline"
