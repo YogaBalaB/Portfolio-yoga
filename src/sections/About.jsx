@@ -97,7 +97,7 @@ export default function About() {
           </div>
         </motion.div>
 
-        <motion.div
+<motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -110,19 +110,15 @@ export default function About() {
             <div style={{ position: 'absolute', top: 0, left: 0, width: '4px', height: '100%', background: C.gold, borderRadius: '8px 0 0 8px' }} />
             <div style={{ fontSize: '0.95rem', color: '#b0b0ae', lineHeight: 1.95 }}>
               <p style={{ margin: '0 0 1.2rem 0' }}>
-                I'm a Full Stack Developer passionate about building modern, user-centric web applications that combine clean design with robust functionality.
+                I'm a Full Stack Developer & AI/ML Engineer with hands-on experience building responsive web applications and intelligent systems — from intuitive frontends to scalable backends and data-driven applications.
+              </p>
+              <p style={{ margin: '0 0 1.2rem 0' }}>My technical expertise includes React.js, Node.js, PostgreSQL, MySQL, Python, TensorFlow, and Scikit-learn. Through 2 internships and multiple projects, I've gained practical experience developing full-stack applications, working with databases, APIs, and modern web technologies.
               </p>
               <p style={{ margin: '0 0 1.2rem 0' }}>
-                With experience in  <strong style={{ color: C.text, fontWeight: 300 }}>React, JavaScript, Node.js, MySQL, and PostgreSQL,</strong> I enjoy working across the entire development lifecycle—from designing responsive interfaces to developing scalable backend systems.
-              </p>
-              <p style={{ margin: '0 0 1.2rem 0' }}>
-                I am passionate about writing clean, maintainable code, creating intuitive user experiences, and <strong style={{ color: C.text, fontWeight: 300 }}>continuously improving my technical skills</strong>. I enjoy transforming ideas into functional, impactful applications that are both efficient and visually engaging.
-              </p>
-              <p style={{ margin: '0 0 1.2rem 0' }}>
-                Currently, I'm expanding my knowledge in system design, cloud technologies, and AI-powered web applications while exploring modern development practices that help build scalable and future-ready software.
-              </p>
+               I'm continuously expanding my expertise in full-stack development, AI/ML, and modern engineering practices while building efficient and scalable applications.
+                </p>
               <p style={{ margin: 0 }}>
-                I'm actively seeking opportunities to contribute, learn, and grow as a software developer while collaborating with teams that are passionate about building innovative and meaningful products.
+                I'm open to full-time roles and collaborations where I can contribute across the stack — especially in teams building products that solve real problems.
               </p>
             </div>
           </motion.div>

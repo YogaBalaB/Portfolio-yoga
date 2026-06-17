@@ -26,7 +26,7 @@ const certifications = [
   },
   {
     title: 'Head of Junior Red Cross (JRC)',
-    issuer: 'Leading social initiatives & community service',
+    issuer: 'Led social initiatives & community service programs',
     date: 'Community Leadership',
     badge: 'Leadership',
     type: 'special',

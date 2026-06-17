@@ -180,7 +180,7 @@ export default function Hero({ photo=myPhoto }) {
                   letterSpacing: '0.01em',
                   fontFamily: C.fs,
                 }}>
-                  Frontend Developer &amp; Full Stack Engineer
+                  Full Stack Developer &amp; AI/ML Engineer
                 </p>
               </div>
 

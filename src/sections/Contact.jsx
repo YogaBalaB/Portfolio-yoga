@@ -20,31 +20,44 @@ const inputStyle = {
   width: '100%', background: 'transparent',
   border: 'none', borderBottom: `1px solid #ffffff20`,
   padding: '0.55rem 0',
-  fontFamily: C.fs, fontSize: '0.87rem', fontWeight: 300,
-  color: C.text, outline: 'none', resize: 'none',
+  fontFamily: "'Outfit', sans-serif", fontSize: '0.87rem', fontWeight: 300,
+  color: '#f0f0ee', outline: 'none', resize: 'none',
 }
 
 export default function Contact() {
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [sent, setSent] = useState(false)
   const [sending, setSending] = useState(false)
+  const [error, setError] = useState(null)
   const [linkHover, setLinkHover] = useState(null)
 
   const onChange = e => setForm(f => ({ ...f, [e.target.name]: e.target.value }))
-  
+
   const onSubmit = async e => {
     e.preventDefault()
     setSending(true)
-    await new Promise(r => setTimeout(r, 1400))
-    setSent(true)
+    setError(null)
+    try {
+      const res = await fetch('https://formspree.io/f/xeewwqpk', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (res.ok) {
+        setSent(true)
+      } else {
+        setError('Something went wrong. Please try again.')
+      }
+    } catch {
+      setError('Network error. Please try again.')
+    } finally {
+      setSending(false)
+    }
   }
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1, delayChildren: 0.2 }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.2 } }
   }
 
   const itemVariants = {
@@ -82,7 +95,7 @@ export default function Contact() {
             <p style={{ fontSize: '0.85rem', color: C.muted, lineHeight: 1.8, marginBottom: '2.5rem' }}>
               I'm open to new opportunities, collaborations, and exciting projects. Feel free to reach out!
             </p>
-            
+
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
               {contactLinks.map((link, i) => {
                 const Icon = link.icon
@@ -212,6 +225,10 @@ export default function Contact() {
                     placeholder="Your message"
                   />
                 </div>
+
+                {error && (
+                  <p style={{ fontSize: '0.8rem', color: '#e05555', margin: 0 }}>{error}</p>
+                )}
 
                 <motion.button
                   type="submit"
