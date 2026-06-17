@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa'
+import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
+import { LINKEDIN_URL } from '../constants/links';
 
 const C = {
   bg: '#0b0c0e', bg2: '#111316', line: '#ffffff12', line2: '#ffffff20',
@@ -13,7 +14,7 @@ const C = {
 const contactLinks = [
   { label: 'Email', value: 'balamurugan56771@gmail.com', href: 'mailto:balamurugan56771@gmail.com', icon: FaEnvelope },
   { label: 'GitHub', value: 'github.com/YogaBalaB', href: 'https://github.com/YogaBalaB', icon: FaGithub },
-  { label: 'LinkedIn', value: 'yoga-bala', href: 'https://www.linkedin.com/in/yoga-bala-1873192a5', icon: FaLinkedin },
+  { label: 'LinkedIn', value: 'yoga-bala', href: LINKEDIN_URL, icon: FaLinkedin },
 ]
 
 const inputStyle = {
