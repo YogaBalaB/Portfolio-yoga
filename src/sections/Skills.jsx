@@ -49,11 +49,9 @@ const skillGroups = [
   {
     label: 'Tools',
     skills: [
-      { name: 'Git', icon: FaGitAlt, level: 85 },
       { name: 'GitHub', icon: FaGithub, level: 85 },
       { name: 'VS Code', icon: FaCode, level: 90 },
-      { name: 'Postman', icon: SiPostman, level: 80 },
-      { name: 'Figma', icon: FaFigma, level: 70 },
+      { name: 'Figma', icon: FaFigma, level: 80 },
     ],
   },
 ]

@@ -41,10 +41,10 @@ const certifications = [
     icon: FaFileAlt
   },
   {
-    title: 'Technical & Cultural Events Winner',
-    issuer: 'Won multiple awards and recognitions in technical presentations, cultural competitions, and extracurricular events',
-    date: 'Competition Awards',
-    badge: 'Achievement',
+    title: 'Hands-On React Applications with React Hooks',
+    issuer: 'Infosys Springboard',
+    date: '2026',
+    badge: 'Certification',
     type: 'cert',
     icon: FaFileAlt
   },
